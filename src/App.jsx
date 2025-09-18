@@ -6,6 +6,7 @@ import remarkBreaks from 'remark-breaks'
 
 function App () {
   const [content, setContent] = useState('')
+  const [isShowExample, setIsShowExample] = useState(false)
 
   // Function to download the file
   const downloadFile = (content, fileName, type) => {
@@ -43,6 +44,17 @@ function App () {
         <h1 className='text-3xl font-bold hover:underline'>Markdown Editor</h1>
 
         <section className='mt-8 flex-1 flex flex-col'>
+          <div className='mb-8'>
+            <p>
+              Click this for{' '}
+              <span
+                className='underline cursor-pointer font-medium'
+                onClick={() => setIsShowExample(true)}
+              >
+                example
+              </span>
+            </p>
+          </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4 flex-1'>
             <div className='col-span-1 flex flex-col'>
               <p className='text-sm rounded-lg inline-block mb-4'>Editor</p>
@@ -191,6 +203,35 @@ function App () {
           </div>
         </section>
       </main>
+
+      {isShowExample && (
+        <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50'>
+          <div className='bg-gray-800 p-8 rounded-lg shadow-lg'>
+            <h2 className='text-xl font-bold mb-4'>Copy this text:</h2>
+            <div className='mb-8'>
+              # My Document
+              <br />
+              This is example text for Markdown
+              <br />
+              ## Introduction
+              <br />
+              This is a **bold** text and *italic* text.
+              <br />
+              ### Features
+              <br />
+              - Feature 1
+              <br />- Feature 2
+            </div>
+
+            <button
+              onClick={() => setIsShowExample(false)}
+              className='w-full bg-sky-500 hover:bg-sky-600 text-white py-2 px-4 rounded cursor-pointer'
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
