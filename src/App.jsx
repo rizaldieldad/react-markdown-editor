@@ -54,6 +54,16 @@ function App () {
                 example
               </span>
             </p>
+            <p>
+              Or if you want to know more, use this{' '}
+              <a
+                target='blank'
+                href='https://www.markdownguide.org/cheat-sheet/'
+                className='underline font-medium'
+              >
+                Markdown Cheat Sheet
+              </a>
+            </p>
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4 flex-1'>
             <div className='col-span-1 flex flex-col'>
